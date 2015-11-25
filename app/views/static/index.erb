@@ -3,13 +3,16 @@
 
 <form action="/urls" method="POST">
 	Enter URL:
-	<input type= "text" name= "long_url">
+	<input type= "text" name= "long_url"> 
+<!-- long_url is in the form of hash ":long_url", changing it will not work -->
 	<!-- <input type= "text" name= "email"> -->
 	<input type="submit" value= "Submit">
 </form>
 
 
 <% @urls.each do |url| %>
-	<%= url.long_url %> - <%= url.short_url %><br>
+	<%= url.long_url %> - 
+	<a href=<%= url.short_url %>> 
+	<%= url.short_url %><a><br>
 <% end %>
 

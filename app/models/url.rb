@@ -6,8 +6,7 @@ class Url < ActiveRecord::Base
 	def shorten
 		self.short_url = SecureRandom.hex(3)
 	end
-
-	# 	# array = Array.new(8){ [*'0'..'9',*'A'..'Z',*'a'..'z'].sample }.join
+	# array = Array.new(8){ [*'0'..'9',*'A'..'Z',*'a'..'z'].sample }.join
 
 end
 

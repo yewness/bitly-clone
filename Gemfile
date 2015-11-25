@@ -37,3 +37,4 @@ group :production do
 end
 
 gem 'byebug'
+gem 'faker'

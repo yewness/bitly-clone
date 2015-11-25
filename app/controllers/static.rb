@@ -4,8 +4,16 @@
 get '/' do
   @urls = Url.all
   erb :"static/index"
+
   # create new short URL
 end
+
+get '/' do
+  puts "[LOG] Getting /"
+  puts "[LOG] Params: #{params.inspect}"
+  erb :index
+  end
+
 
 post '/urls' do
 	url = Url.create(long_url: params[:long_url])
@@ -15,21 +23,10 @@ post '/urls' do
 	# url.save
 
 	# params[:email]
-	# byebug
-	# p params[:long_url]
-	# a = params[:short_url]
-	# a.save
-	#type a new URL
-	#try to assign new URL to the short URL
-	# Do something processing with URL
-	# redirect to '/:short_url'
-
 end
 
 get '/about_me' do
-	puts "hi"
 	redirect "/"
-
 end
 
 get '/:short_url' do
