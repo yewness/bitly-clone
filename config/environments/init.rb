@@ -21,7 +21,7 @@ require "sinatra/reloader" if development?
 require 'erb'
 require 'uri'
 ######################################################################
-
+require 'securerandom'
 
 # System Setup
 ######################################################################
@@ -36,11 +36,15 @@ use Rack::Session::Cookie, expire_after: ENV['SESSION_EXPIRE'] || 2592000, # sec
                            dump_errors: false,
                            app_file: __FILE__
 
+# Setup assets folder
+set :public_folder, 'public'
+
 # Setup Models (M) and its database
 require APP_ROOT.join('config', 'database')
 
 # Setup views (V)
 set :views, File.join(APP_ROOT, "app", "views")
+set :erb, layout: :'layouts/application'
 
 # Setup helper (H)
 Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }

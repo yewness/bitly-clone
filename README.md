@@ -3,7 +3,7 @@
 | Details   |  | 
 | :--------------- | -------: |
 | Re-created by: | Holloway, Chew Kean Ho |
-| Version:    | 0.0.6   |
+| Version:    | 0.0.9   |
 | Contribution:    | Hobby. Best effort basis.   |
 <br><br>
 ## Purpose
@@ -13,6 +13,7 @@ This Ruby Sinatra web skeleton was re-furbished for rapid prototyping a web API 
 1. Local Support
 2. Heroku Support - using PUMA
 3. Bluemix Support - using PUMA
+4. Cloud9 Support - using Shotgun
 
 >**NOTE**:
 >This guide assumes you are good with Ruby, Heroku, Bluemix and understands MVC architecture patterns.
@@ -20,6 +21,7 @@ This Ruby Sinatra web skeleton was re-furbished for rapid prototyping a web API 
 # To go for platform specific code, please visit these pages:
 1. Heroku - https://github.com/hollowaykeanho/sinatra-web-server/tree/heroku
 2. Bluemix - https://github.com/hollowaykeanho/sinatra-web-server/tree/bluemix
+3. Cloud9 - continue to read README.
 
 # Master Branch
 > Master branch currently based on Heroku platform. Please use with caution.
@@ -53,6 +55,11 @@ $ bundle install
 ```
 $ rake server
 ```
+If you're working on cloud9 server, you should use the following command:
+```
+$ rake c9-server
+```
+
 5) Hooray! You may now begin your code development.
 <br><br>
 
@@ -268,3 +275,7 @@ $ rake db:version
 14. https://devcenter.heroku.com/articles/getting-started-with-rails3
 15. http://www.getlaura.com/how-to-enable-sessions-with-sinatra/
 16. http://stackoverflow.com/questions/5693528/how-to-use-sinatra-session
+17. http://www.sinatrarb.com/configuration.html
+18. https://github.com/sinatra/sinatra/issues/495
+19. http://stackoverflow.com/questions/18302934/how-to-set-a-custom-directory-for-layouts-in-sinatra
+20. http://www.sinatrarb.com/intro.html#Inline%20Templates
