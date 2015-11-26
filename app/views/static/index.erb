@@ -1,26 +1,61 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Page Title</title>
-</head>
+<div style="position:relative; visibility:hidden;">HELLO!!!</div>
+
 <body>
+  <div id="wrapper">
 
-<h1>Welcome to Bitbut!</h1>
-<p>Where tastebud has nothing to do here.</p>
+<div style="text-align: center">
+	<img id="logo" src="img/backrub.jpg" alt="Backrub">
+</div>
+<p>Futuristically known as Google.</p>
 
-<form action="/urls" method="POST">
-	Enter URL:
-	<input type= "text" name= "long_url"> 
-<!-- long_url is in the form of hash ":long_url", changing it will not work -->
-	<!-- <input type= "text" name= "email"> -->
-	<input type="submit" value= "Submit">
-</form>
 
-<% @urls.each_with_index do |url,count| %>
-	<%= count + 1%>. <%= url.long_url %> - 
-	<a href=<%= url.short_url %>> 
-	<%= url.short_url %><a> Click count: <%= url.click_counter %> <br>
-<% end %>
+<div id="url-form">
+	<form action="/urls" method="POST">
+		<input type= "text" name= "long_url" placeholder = "Please enter"> 
+	<br/>
+	<br/>
+		<input type="submit" value= "Submit" class="btn">
+<!-- 		<input id="lucky" type="I'm feeling lucky" value= "submit"> -->
+	
+	</form>
+</div>
+<br/>
+
+<table class="zebra">
+<thead> 
+<tr id="zebra-header"> 
+	<th>No.</th> 
+    <th>Url</th> 
+    <th>Short Url</th> 
+    <th>Click Count</th> 
+</tr> 
+</thead> 
+<tbody> 
+	<% @urls.each_with_index do |url,count| %>
+		<tr> 
+		    <td><%= count + 1%></td> 
+		    <td><%= url.long_url %></td> 
+		    <td><a href=<%= url.short_url %>><%= url.short_url %><a> </td>
+			<td><%= url.click_counter %></td>
+		</tr> 
+	<% end %>
+</tbody> 
+</table> 
+<br/>
+<br/>
+
+<div id="share-buttons" align="center">
+    <a href="http://www.facebook.com" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/facebook.png" title="Facebook" alt="Facebook"/></a>
+    <a href="https://twitter.com" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/twitter.png" title="Twitter" alt="Twitter"/></a>
+    <a href="http://www.pinterest.com">
+        <img src="https://simplesharebuttons.com/images/somacro/pinterest.png" title="Pinterest" alt="Pinterest"/></a>
+    <a href="http://www.instagram.com">
+        <img src="http://arkansasteachercorps.org/wp-content/uploads/2014/11/Instagram-logo-005.png" title="Instagram" alt="Instagram"/></a>
+<br/>
+	Copyright © 2015 Yew Hong
+
+  </div>
 
 </body>
-</html>

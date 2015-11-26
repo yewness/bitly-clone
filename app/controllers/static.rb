@@ -1,8 +1,7 @@
 require 'byebug'
 
 get '/' do
-  @urls = Url.all
-  @urls.order(click_counter: :desc)
+  @urls = Url.all.order(click_counter: :desc)
   erb :"static/index"
 end
 
