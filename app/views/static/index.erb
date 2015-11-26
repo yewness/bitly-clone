@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
 <h1>Welcome to Bitbut!</h1>
 <p>Where tastebud has nothing to do here.</p>
 
@@ -9,10 +16,11 @@
 	<input type="submit" value= "Submit">
 </form>
 
-
-<% @urls.each do |url| %>
-	<%= url.long_url %> - 
+<% @urls.each_with_index do |url,count| %>
+	<%= count + 1%>. <%= url.long_url %> - 
 	<a href=<%= url.short_url %>> 
-	<%= url.short_url %><a><br>
+	<%= url.short_url %><a> Click count: <%= url.click_counter %> <br>
 <% end %>
 
+</body>
+</html>

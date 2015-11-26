@@ -1,18 +1,16 @@
-# require 'byebug'
-# byebug
+require 'byebug'
 
 get '/' do
   @urls = Url.all
+  @urls.order(click_counter: :desc)
   erb :"static/index"
-
-  # create new short URL
 end
 
-get '/' do
-  puts "[LOG] Getting /"
-  puts "[LOG] Params: #{params.inspect}"
-  erb :index
-  end
+# get '/' do
+#   puts "[LOG] Getting /"
+#   puts "[LOG] Params: #{params.inspect}"
+#   erb :index
+#  end
 
 
 post '/urls' do
@@ -21,8 +19,6 @@ post '/urls' do
 	# url.update(short_url: url.shorten)
 	# url.short_url = url.shorten
 	# url.save
-
-	# params[:email]
 end
 
 get '/about_me' do
@@ -30,10 +26,11 @@ get '/about_me' do
 end
 
 get '/:short_url' do
-	
 	url = Url.find_by(short_url: params[:short_url])
 	
 	unless url.nil?
+		url.click_counter += 1
+		url.save
 		redirect url.long_url
 	else
 		redirect "/"
